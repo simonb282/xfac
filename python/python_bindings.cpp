@@ -70,7 +70,7 @@ void declare_TensorCI(py::module &m, std::string typestr) {
             .def("iterate", &TensorTreeCId::iterate, "nIter"_a=1, "dmrg_type"_a=2)
             .def("addPivotsAllBonds", &TensorTreeCId::addPivotsAllBonds)
             .def("addPivotsAt", &TensorTreeCId::addPivotsAt)
-            ;
+            .def_readwrite("param", &TensorTreeCId::param);
 
     m.def("sum", xfac::operator+<T>,"tt1"_a, "tt2"_a);
     m.def("sum", &xfac::sum<T>, "tts"_a, "reltol"_a=1e-12, "maxBondDim"_a=0, "use_svd"_a=false);
